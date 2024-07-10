@@ -1,0 +1,26 @@
+  name: Node Main Workflow
+
+  on:
+    push: 
+      branches: [ master ]
+      
+  jobs:
+    build:
+      runs-on: unbutu_latest
+
+      steps: 
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with: 
+          check-latest: true
+
+      - name: Setup Dependencies]
+        run: npn install
+
+      - name: Run Tests
+        run: npm test  
+        
+          
+    
