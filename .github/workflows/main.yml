@@ -18,7 +18,7 @@
           check-latest: true
 
       - name: Setup Dependencies]
-        run: npn install
+        run: npm install
 
       - name: Run Tests
         run: npm test  
