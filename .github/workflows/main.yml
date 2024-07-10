@@ -17,7 +17,7 @@
         with: 
           check-latest: true
 
-      - name: Setup Dependencies]
+      - name: Setup Dependencies
         run: npm install
 
       - name: Run Tests
