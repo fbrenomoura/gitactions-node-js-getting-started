@@ -12,17 +12,23 @@
       steps: 
       - name: Checkout Repo
         uses: actions/checkout@v4
+
+      - name: Get Node.js engine version
+        id: get-node-version
+        run: |
+          node_version=$(node -p "require('./package.json').engines.node")
+          echo "Node.js versão apontada: $node_version"
+          echo "::set-output name=NODE_VERSION::$node_version"
       
       - name: Setup Node
         uses: actions/setup-node@v4
         with: 
-          check-latest: true
+          node-version: ${{ steps.get-node-version.outputs.NODE_VERSION }}
 
       - name: Setup Dependencies
         run: npm install
 
       - name: Run Tests
-        run: npm test  
-        
+        run: npm test 
           
     
